@@ -3,6 +3,8 @@ import 'package:jas_utils/jas_utils.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:uuid/uuid.dart';
 
+import 'db_transfer.dart';
+
 ProductData currentArticle = ProductData.createEmpty();
 String groupToEdit = "";
 ImageData? uploadedImage;

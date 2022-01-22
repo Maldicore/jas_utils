@@ -48,7 +48,8 @@ firebaseInitApp(BuildContext context) async {
           return;
         }
       }
-      _notifyCallback(message);
+      if (_notifyCallback != null)
+        _notifyCallback!(message);
       }
     }
   );
@@ -109,7 +110,9 @@ firebaseGetToken(BuildContext context) async {
         return;
       }
     }
-    _notifyCallback(message);
+    if (_notifyCallback != null)
+      _notifyCallback!(message);
+
   });
 
   FirebaseMessaging.onMessage.listen((RemoteMessage message) {
@@ -127,70 +130,21 @@ firebaseGetToken(BuildContext context) async {
       }
     }
     FlutterAppBadger.updateBadgeCount(1);
-    _notifyCallback(message);
+    if (_notifyCallback != null)
+      _notifyCallback!(message);
   });
 }
 
 String? _lastMessageId;
 
-// Function(RemoteMessage message)? _notifyCallback;
+Function(RemoteMessage message)? _notifyCallback;
 
-// setNotifyCallback(Function(RemoteMessage message) notifyCallback){
-//   _notifyCallback = notifyCallback;
-// }
-
-// removeBadge(){
-//   FlutterAppBadger.removeBadge();
-// }
-
-int _numberOfUnreadMessages = 0;
-
-Function()? updateNotifyPage;
-
-_notifyCallback(RemoteMessage message){
-  if (message.notification != null) {
-    dprint("setNotifyCallback ${message.notification!.title}");
-    _numberOfUnreadMessages++;
-    if (updateNotifyPage != null) {
-      _numberOfUnreadMessages = 0;
-      updateNotifyPage!();
-    }
-    // if (parent.currentPage == "notify"){
-    //   if (parent.updateNotify != null) {
-    //     parent.numberOfUnreadMessages = 0;
-    //     parent.updateNotify!();
-    //   }
-    // }
-    // dprint("_numberOfUnreadMessages=${parent.numberOfUnreadMessages}");
-    redrawMainWindow();
-  }
+setNotifyCallback(Function(RemoteMessage message) notifyCallback){
+  _notifyCallback = notifyCallback;
 }
 
-setNumberOfUnreadMessages(int val){
-  _numberOfUnreadMessages = val;
-  redrawMainWindow();
-  if (val == 0)
-    FlutterAppBadger.removeBadge();
-}
+// Function()? _chatCallback;
 
-getNumberOfUnreadMessages() {
-  if (currentScreen() == "notify")
-    _numberOfUnreadMessages = 0;
-  return _numberOfUnreadMessages;
-}
-
-// setUnreadMessagesCount() async {
-//   User? user = FirebaseAuth.instance.currentUser;
-//   if (user == null)
-//     return;
-//   await dbGetAllDocumentInTable("messages", field1: "user", isEqualTo1: user.uid,
-//
-//   );
-//
-//   FirebaseFirestore.instance.collection("messages")
-//       .where('user', isEqualTo: user.uid).where("read", isEqualTo: false )
-//       .get().then((querySnapshot) {
-//     _numberOfUnreadMessages = querySnapshot.size;
-//     addStat("user messages size", querySnapshot.size);
-//   });
+// setChatCallback(Function() chatCallback){
+//   _chatCallback = chatCallback;
 // }

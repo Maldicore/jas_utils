@@ -8,6 +8,7 @@ import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../jas_utils.dart';
+import 'db_transfer.dart';
 
 List<ProviderData> providers = [];
 ProviderData currentProvider = ProviderData.createEmpty();

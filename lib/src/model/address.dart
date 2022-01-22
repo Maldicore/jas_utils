@@ -3,6 +3,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:uuid/uuid.dart';
 import '../../jas_utils.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_webservice/places.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
@@ -158,7 +159,7 @@ Future<String?> saveLocation(int _type, String _address, String _name, String _p
   return t;
 }
 
-String urlServerBackend = ""; // https://admin.jackaservice.com/api/";
+String urlServerBackend = ""; // https://jackaservice.com/api/";
 
 Future<PlacesSearchResponse?> _placesSearchNearbyWithRadius(double lat, double lng) async {
   try {

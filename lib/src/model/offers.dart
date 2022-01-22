@@ -1,4 +1,5 @@
 import '../../jas_utils.dart';
+import 'db_transfer.dart';
 
 List<OfferData> offers = [];
 

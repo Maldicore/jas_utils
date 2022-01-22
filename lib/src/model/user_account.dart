@@ -10,6 +10,7 @@ import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 import 'package:uuid/uuid.dart';
 import 'dart:math';
 import '../../jas_utils.dart';
+import 'db_transfer.dart';
 
 UserAccountData userAccountData = UserAccountData.createEmpty();
 

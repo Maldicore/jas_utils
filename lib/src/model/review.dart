@@ -2,6 +2,7 @@ import 'dart:typed_data';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../jas_utils.dart';
+import 'db_transfer.dart';
 
 int reviewsRate = 0;
 String reviewsRateString = "";

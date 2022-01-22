@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import '../../jas_utils.dart';
+import 'db_transfer.dart';
 
 Future<String?> finishCartV1(ProductData currentService, bool temporary, String paymentMethodId,
     String stringFromUser, /// strings.get(160) /// "From user:",

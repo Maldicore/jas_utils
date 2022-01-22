@@ -1,3 +1,5 @@
-## 1.0.0-dev.1
+## 1.0.0
 
-- Initial developer version.
+- Initial version.
+
+1.0.1 6 kb
