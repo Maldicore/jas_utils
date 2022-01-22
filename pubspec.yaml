@@ -1,8 +1,7 @@
 name: jas_utils
 description: Utils for jack a service project
 version: 1.0.0-dev.1
-
-homepage: https://maldicore.com/co
+homepage: https://github.com/Maldicore/jas_utils
 
 environment:
   sdk: '>=2.14.4 <3.0.0'
